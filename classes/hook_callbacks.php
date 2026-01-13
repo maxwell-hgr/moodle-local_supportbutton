@@ -11,24 +11,30 @@ class hook_callbacks {
         <style>
             .floating-support-btn {
                 position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-                background-color: #007bff; color: white; border: none;
-                border-radius: 50px; padding: 15px 25px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer;
-                font-weight: bold; display: flex; align-items: center; gap: 8px;
+                background-color: #008041; color: white; border: none;
+                border-radius: 50px; padding: 12px 20px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer;
+                display: flex; align-items: center; gap: 8px; font-weight: bold;
             }
-            .floating-support-btn:hover { background-color: #0056b3; color: white; }
+            .support-wrapper {
+                position: fixed; bottom: 85px; right: 20px; z-index: 10000;
+                width: 320px;
+            }
+            .zammad-chat { z-index: 10001 !important; }
         </style>";
 
-        $button = "
-        <button class='floating-support-btn' id='btn-support-trigger'>
-            <i class='fa fa-comments'></i> Suporte
-        </button>";
+        $modal_html = $OUTPUT->render_from_template('local_supportbutton/support_modal', []);
 
-        // Injeta o CSS e o Botão
+        $button = "
+        <div class='support-container'>
+            <div id='support-cards-container'>$modal_html</div>
+            <button class='floating-support-btn' id='btn-support-trigger'>
+                <i class='fa fa-commenting'></i> Suporte Online
+            </button>
+        </div>";
+
         echo $css . $button;
 
-        // Inicializa o módulo AMD
-        // Mude de 'local_supportbutton/support.js' para apenas 'local_supportbutton/support'
         $PAGE->requires->js_call_amd('local_supportbutton/support', 'init');
     }
 }
