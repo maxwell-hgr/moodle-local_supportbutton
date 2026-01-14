@@ -10,8 +10,9 @@ Esse plugin integra o Moodle ao Zammad para suporte do AVA da Universidade de Br
 
 ## Uso
 1. Visite a página Administração do Site -> Plugins (em plugins locais) -> Support Button
-2. Configure a cor e o chatId que corresponde ao ambiente específico - (Aprender3: chat = 6, cor = #2881B3; Aprender2: chat = 3, cor = #008041)
-3. Teste a conexão do chat
+2. Configure a cor e o chatId que corresponde ao ambiente específico
+   (Aprender3: chat = 6, cor = #2881B3; Aprender2: chat = 3, cor = #008041)
+4. Teste a conexão do chat
 
 ## Recursos
  - Botão e modal com estilos customizáveis.
